@@ -100,42 +100,33 @@ fun ActividadCard(
         modifier = modifier,
     )
     {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
                 .sizeIn(minHeight = 72.dp)
         )
         {
-            Column(modifier = Modifier.weight(1f))
-            {
-                Text(
-                    text = stringResource(id = actividad.dayRes),
-                    style = MaterialTheme.typography.displaySmall
-                )
-                Text(
-                    text = stringResource(id = actividad.descriptionRes),
-                    style = MaterialTheme.typography.bodyLarge
-                )
-                Text(
-                    text = stringResource(id = actividad.textRes),
-                    style = MaterialTheme.typography.bodyLarge
-                )
-            }
-            Spacer(Modifier.width(16.dp))
-            Box(
-                modifier = Modifier
-                    .size(72.dp)
-                    .clip(RoundedCornerShape(8.dp))
+            Text(
+                text = stringResource(id = actividad.dayRes),
+                style = MaterialTheme.typography.displaySmall
             )
-            {
-                Image(
-                    painter = painterResource(id = actividad.imageRes),
-                    contentDescription = null,
-                    alignment = Alignment.TopCenter,
-                    contentScale = ContentScale.FillWidth
-                )
-            }
+            Text(
+                text = stringResource(id = actividad.descriptionRes),
+                style = MaterialTheme.typography.bodyLarge
+            )
+            Spacer(Modifier.width(16.dp))
+            Image(
+                painter = painterResource(id = actividad.imageRes),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth(),
+                contentScale = ContentScale.Crop
+            )
+            Text(
+                text = stringResource(id = actividad.textRes),
+                style = MaterialTheme.typography.bodyLarge
+            )
         }
     }
 }
